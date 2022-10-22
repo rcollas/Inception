@@ -2,17 +2,19 @@ version: "3.3"
 
 services:
   nginx:
-    build: ./nginx
+    build: ./requirements/nginx
     ports:
       - "443:443"
     networks:
       - inception
     volumes:
       - wordpress_vol:/usr/share/www/html
+    env_file:
+      - .env
     restart: always
 
   mariadb:
-    build: ./mariadb
+    build: ./requirements/mariadb
     networks:
       - inception
     volumes:
@@ -29,7 +31,7 @@ services:
       - nginx
     env_file:
       - .env
-    build: ./wordpress
+    build: ./requirements/wordpress
     expose:
       - "9000"
     networks:

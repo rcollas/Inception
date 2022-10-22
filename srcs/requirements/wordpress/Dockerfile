@@ -9,9 +9,9 @@ RUN	apk update && apk add \
 	curl \
 	mariadb-client
 
-COPY	www.conf /etc/php8/php-fpm.d/
+COPY	./conf/www.conf /etc/php8/php-fpm.d/
 
-COPY	config.sh /
+COPY	./script/config.sh /
 
 
 RUN	mkdir -p /usr/share/www/html && \
@@ -20,7 +20,6 @@ RUN	mkdir -p /usr/share/www/html && \
 	mv wp-cli.phar /usr/bin/wp && \
 	mv /usr/bin/php8 /usr/bin/php
 
-#COPY	./wp-config.php /
 
 WORKDIR	/usr/share/www/html
 

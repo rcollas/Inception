@@ -13,7 +13,7 @@ RUN	sed -i "/http /a include \/etc\/nginx\/conf.d\/*.conf;" /etc/nginx/nginx.con
 
 RUN	mkdir -p /usr/share/www/html
 
-COPY	rcollas.conf /etc/nginx/conf.d/
+COPY	./conf/rcollas.conf /etc/nginx/conf.d/
 
 EXPOSE	443 
 

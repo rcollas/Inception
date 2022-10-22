@@ -4,9 +4,9 @@ RUN	apk update && apk add --no-cache \
 	mariadb \
 	mariadb-client
 
-COPY ./config.sh /
+COPY ./script/config.sh /
 
-COPY ./mariadb-server.cnf /etc/my.cnf.d
+COPY ./conf/mariadb-server.cnf /etc/my.cnf.d
 
 ENTRYPOINT ["sh", "config.sh"]
 
